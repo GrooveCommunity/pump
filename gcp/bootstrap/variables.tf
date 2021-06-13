@@ -3,7 +3,7 @@ variable "project_id" {
   description = "The ID of the project where this VPC will be created"
 }
 
-variable "project_id" {
+variable "labels" {
   type        = map(string)
   description = "Map of labels to put in resources"
   default     = {}
