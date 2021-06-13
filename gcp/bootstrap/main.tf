@@ -44,6 +44,8 @@ resource "google_kms_crypto_key" "bucket_crypto_key" {
   lifecycle {
     prevent_destroy = true
   }
+
+  labels = var.labels
 }
 
 resource "google_kms_crypto_key_iam_member" "bucket_crypto_key" {
@@ -69,6 +71,8 @@ resource "google_storage_bucket" "terraform_backend" {
   }
 
   storage_class = "STANDARD"
+
+  labels = var.labels
 
   depends_on = [
     google_project_service.service,

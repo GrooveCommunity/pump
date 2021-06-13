@@ -3,6 +3,12 @@ variable "project_id" {
   description = "The ID of the project where this VPC will be created"
 }
 
+variable "project_id" {
+  type        = map(string)
+  description = "Map of labels to put in resources"
+  default     = {}
+}
+
 variable "service_account_id" {
   type        = string
   description = "Service account ID to manage tfstate and provide Terraform access to orchestrate resources"

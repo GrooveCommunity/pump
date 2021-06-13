@@ -43,6 +43,10 @@ module "bootstrap" {
   tfstate_path       = "myawesomeapp"
   # Where to generate the backend.tf file
   backend_local_path = abspath(path.root)
+
+  labels = {
+    "my-label" = "my-value"
+  }
 }
 ```
 
@@ -95,6 +99,7 @@ No Modules.
 | key\_rotation\_days                   | Number of days to set automatic encryption key rotation for bucket                                     | `number`       | `15`    |    no    |
 | kms\_location                         | Terraform keyring location (use one documented here https://cloud.google.com/kms/docs/locations)       | `string`       | `"us"`  |    no    |
 | project\_id                           | The ID of the project where this VPC will be created                                                   | `string`       | n/a     |   yes    |
+| labels                                | Map of labels to put in resources                                                                      | `map(string)`  | `{}`    |    no    |
 | service\_account\_id                  | Service account ID to manage tfstate and provide Terraform access to orchestrate resources             | `string`       | n/a     |   yes    |
 | service\_account\_key\_rotation\_days | Number of days to set automatic key rotation for service account                                       | `number`       | `30`    |    no    |
 | service\_account\_roles               | Service account roles (gcloud iam roles list)                                                          | `list(string)` | n/a     |   yes    |
