@@ -33,7 +33,7 @@ resource "google_kms_key_ring" "keyring" {
 resource "google_kms_crypto_key" "bucket_crypto_key" {
   name            = "${var.backend_name}-gcs-key"
   key_ring        = google_kms_key_ring.keyring.id
-  rotation_period = "${var.key_rotation_days * 86400}s"
+  rotation_period = "${var.kms_key_rotation_days * 86400}s"
   purpose         = "ENCRYPT_DECRYPT"
 
   version_template {

@@ -35,7 +35,7 @@ module "bootstrap" {
   # https://cloud.google.com/kms/docs/locations
   kms_location                      = "us"
   # Key used to encrypt tfstate bucket
-  key_rotation_days                 = 30
+  kms_key_rotation_days                 = 30
   # This rotation is done by terraform, so if you want to automate this, you should run the bootstrap regularly
   service_account_key_rotation_days = 30
   
@@ -96,7 +96,7 @@ No Modules.
 | backend\_local\_path                  | Local path to create terraform backend configuration file                                              | `string`       | n/a     |   yes    |
 | backend\_location                     | Terraform backend GCS bucket (use one documented here https://cloud.google.com/storage/docs/locations) | `string`       | `"US"`  |    no    |
 | backend\_name                         | Terraform backend GCS bucket name                                                                      | `string`       | n/a     |   yes    |
-| key\_rotation\_days                   | Number of days to set automatic encryption key rotation for bucket                                     | `number`       | `15`    |    no    |
+| kms\_key\_rotation\_days                   | Number of days to set automatic encryption key rotation for bucket                                     | `number`       | `15`    |    no    |
 | kms\_location                         | Terraform keyring location (use one documented here https://cloud.google.com/kms/docs/locations)       | `string`       | `"us"`  |    no    |
 | project\_id                           | The ID of the project where this VPC will be created                                                   | `string`       | n/a     |   yes    |
 | labels                                | Map of labels to put in resources                                                                      | `map(string)`  | `{}`    |    no    |

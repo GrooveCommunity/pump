@@ -36,7 +36,7 @@ variable "kms_location" {
   default     = "us"
 }
 
-variable "key_rotation_days" {
+variable "kms_key_rotation_days" {
   type        = number
   description = "Number of days to set automatic encryption key rotation for bucket"
   default     = 15
